@@ -100,7 +100,7 @@ public class SimpleObjectFactory implements ObjectFactory {
         for (Constructor c: constructors) {
             if (c.isAnnotationPresent(Inject.class)) {
                 if (annotatedConstructor != null) {
-                    throw new AmbiguousConstructorInjectionException();
+                    throw new AmbiguousConstructorInjectionException("On class '" + clazz.getName() + "'.");
                 }
                 annotatedConstructor = c;
             }
